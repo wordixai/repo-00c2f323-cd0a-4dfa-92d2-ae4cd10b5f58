@@ -8,20 +8,70 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-   
-  }
-
-  .dark {
-
+    --background: 210 11% 7%; /* #121212 */
+    --foreground: 0 0% 100%; /* white */
+    --card: 210 11% 10%; /* #1a1a1a */
+    --card-foreground: 0 0% 100%;
+    --popover: 210 11% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 210 11% 7%;
+    --secondary: 240 4% 16%; /* #2e2e2e */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 64%;
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 18%;
+    --input: 240 4% 16%;
+    --ring: 240 10% 4%;
+    --radius: 0.5rem;
+    
+    /* Custom colors */
+    --zinc-300: 240 5% 64%;
+    --zinc-400: 240 5% 34%;
+    --zinc-600: 240 4% 16%;
+    --zinc-900: 240 10% 4%;
+    --bg-gradient: linear-gradient(to right, hsl(0 0% 0%), hsl(240 5% 64% / 0.2), hsl(0 0% 0%));
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-white via-zinc-200 to-white bg-clip-text text-transparent;
   }
-
-  body {
-    @apply bg-background text-foreground;
+  
+  .bg-gradient-custom {
+    background: linear-gradient(to right, black, hsl(240 5% 64% / 0.2), black);
+  }
+  
+  .feature-card {
+    @apply bg-white rounded-xl p-8 hover:border-zinc-600 transition-all hover:scale-105;
+  }
+  
+  .hero-button {
+    @apply bg-white font-bold hover:bg-zinc-100 text-[#121212] px-8 py-4 rounded-xl transition-all hover:opacity-80 cursor-pointer;
+  }
+  
+  .nav-link {
+    @apply text-zinc-300 hover:text-white transition-colors;
+  }
+  
+  .section-bg {
+    @apply bg-[#121212];
+  }
+  
+  .section-bg-alt {
+    @apply bg-[#1a1a1a];
+  }
+  
+  .stats-card {
+    @apply bg-gradient-to-r from-black via-[#858585]/20 to-black border border-[#858585]/20 rounded-xl p-8;
+  }
+  
+  .code-block {
+    @apply bg-gradient-to-r from-black via-[#858585]/20 to-black border border-[#858585]/20 rounded-xl p-6;
   }
 }
